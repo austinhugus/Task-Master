@@ -1,20 +1,22 @@
 import List from "../Models/List.js";
-import _store from "../store.js"
+import _store from "../store.js";
+
 
 
 
 
 //Public
-class ListService {
-
+class ListsService {
 
   addList(freshList) {
     let list = new List(freshList)
     _store.State.lists.push(list)
   }
 
-  removeList(id) {
-    _store.State.lists = _store.State.lists.filter(i => i.id != id)
+  deleteList(id) {
+    let index = _store.State.lists.find(l => l.id == id);
+
+    return;
 
   }
 
@@ -23,8 +25,8 @@ class ListService {
     list.items.push(item)
   }
 
-  removeItem(listId, index) {
-    let list = _store.State.lists.find(i => i.id == listId)
+  deleteItem(listId, index) {
+    let list = _store.State.lists.find(l => l.id == listId)
     list.items.splice(index, 1)
   }
   //TODO  Here is where we handle all of our business logic,
@@ -34,5 +36,5 @@ class ListService {
 }
 console.log("Hello from Service");
 
-const _listService = new ListService();
-export default _listService;
+const SERVICE = new ListsService();
+export default SERVICE;
