@@ -26,22 +26,25 @@ export default class ListsController {
 
     let freshList = {
       name: event.target.name.value,
-      color: event.target.color.value
+      color: event.target.color.value,
+
     }
     _listsService.addList(freshList)
+
     _draw();
   }
 
   deleteList(id) {
 
     _listsService.deleteList(id);
+
     _draw();
   }
 
   addItem(event, listId) {
     event.preventDefault();
-    let item = event.target.item.value
-
+    let item = event.target.item.value;
+    _listsService.addItem(item, listId)
     _draw();
   }
 
@@ -50,6 +53,6 @@ export default class ListsController {
     _listsService.deleteItem(itemId, index)
     _draw();
   }
+
   //TODO: Your app will need the ability to create, and delete both lists and listItems
 }
-console.log('hello from controller');

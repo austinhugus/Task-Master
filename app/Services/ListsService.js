@@ -11,24 +11,30 @@ class ListsService {
   addList(freshList) {
     let list = new List(freshList)
     _store.State.lists.push(list)
+    _store.saveState()
   }
 
   deleteList(id) {
-    let index = _store.State.lists.find(l => l.id == id);
+    _store.State.lists = _store.State.lists.filter(l => l.id != id)
+    window.confirm("Are you sure you want to delete?")
+    _store.saveState()
 
     return;
-
   }
 
   addItem(item, listId) {
     let list = _store.State.lists.find(l => l.id == listId)
     list.items.push(item)
+    _store.saveState()
   }
 
   deleteItem(listId, index) {
     let list = _store.State.lists.find(l => l.id == listId)
-    list.items.splice(index, 1)
+    list.items.splice(index, 1);
+    window.confirm("Are you sure you want to delete?")
+    _store.saveState()
   }
+
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
   //what methods will you need to do when this class is first 'constructed'?

@@ -7,16 +7,39 @@ body {
 main {
     flex-grow: 1;
 }
-.pointer {
-    cursor: pointer;
+.action {
+    cursor: pointer
 }
-.green{ background-color:green; }
 
-.blue{ background-color:blue; }
 
-.red{ background-color:red; }
+ul{
+ list-style-type: none;
+}
+#color {
+    width: 50px;
+}
+.hcolor{
+    padding-top: 15%;
+    
+}
+.zero{
+    padding: 0%;
+}
+.extend{
+    height: 20%;
+}
+.bungee{
+   font-family: 'Bungee Shade';font-size: 50px;
+   padding: 0;
+}
+.bungee1{
+   font-family: 'Bungee Shade';font-size: 20px;
+}
+.bungee2{
+    font-family: 'Bungee';font-size: 30px;
+}
+.cinzel{
+    font-family: 'Cinzel';font-size: 20px;
+}
 
-.yellow{
-    background-color: yellow;}
-.orange{
-    background-color: orange;}
+

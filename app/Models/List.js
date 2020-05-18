@@ -17,16 +17,16 @@ export default class List {
     get Template() {
         return /*html*/`
         <div class="col-3">
-        <div class="card shadow">
-            <div class="card-body d-flex flex-column">
-                <i class="fas fa-times text-danger align-self-end action"
-                    onclick="app.listsController.deleteList('${this.id}')"></i>
-                <h4 class="card-title">${this.name}</h4>
+        <div class="card shadow taller">
+             <div class="card-body d-flex flex-column zero extend" style="padding-top: 0%;">
+              <i class="fas fa-trash text-danger align-self-end action zero"
+                  onclick="app.listsController.deleteList('${this.id}')"></i>
+                <h4 class="bungee2 card-title hcolor text-center pb-5" style="background-color: ${this.color}">${this.name}</h4>
                 <ul class="pl-3">
                     ${this.ItemsTemplate}
                 </ul>
-                <form onsubmit="app.listController.addItem(event, '${this.id}')">
-                    <div class="form-group d-flex">
+                <form onsubmit="app.listsController.addItem(event, '${this.id}')">
+                    <div class="form-group cinzel">
                         <input type="text" class="form-control" name="item" id="item"
                             aria-describedby="helpId" placeholder="Add Item" required>
                         <button type="submit" class="btn btn-outline-success ml-1"><i
@@ -44,10 +44,10 @@ export default class List {
         let template = ""
         this.items.forEach((item, index) => {
             template += /*html*/`
-            <li>
+            <li><input type="checkbox">
             ${item}
-                <i class="fas fa-times text-danger action"
-                    onclick="app.itemsController.deleteItem('${this.id}', ${index})"></i>
+                <i class="fas fa-trash text-danger action pl-5 align-self-end"
+                    onclick="app.listsController.deleteItem('${this.id}', ${index})"></i>
             </li>
             `
         })
