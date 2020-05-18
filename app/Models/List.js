@@ -29,7 +29,7 @@ export default class List {
                     <div class="form-group cinzel">
                         <input type="text" class="form-control" name="item" id="item"
                             aria-describedby="helpId" placeholder="Add Item" required>
-                        <button type="submit" class="btn btn-outline-success ml-1"><i
+                        <button type="submit" class="btn btn-outline-success ml-2"><i
                                 class="fas fa-plus "></i></button>
                     </div>
                 </form>
@@ -46,7 +46,7 @@ export default class List {
             template += /*html*/`
             <li><input type="checkbox">
             ${item}
-                <i class="fas fa-trash text-danger action pl-5 align-self-end"
+                <i class="fas fa-trash text-danger action pl-5 pt-4 "
                     onclick="app.listsController.deleteItem('${this.id}', ${index})"></i>
             </li>
             `
